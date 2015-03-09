@@ -1,9 +1,12 @@
 # codeigniter-whois
  CodeIgniter library to get WHOIS information
  
- ## Installation
+## Installation
  1. copy the files in `/src` to your CodeIgniter `application/libraries` directory
  
- ## Usage
+## Usage
+ From within any of your Controller functions you can initialize codeigniter-whois using the standard:
  
- ## Resources
+    $this->load->library('someclass');
+ 
+## Resources
