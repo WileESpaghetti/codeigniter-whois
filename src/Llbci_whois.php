@@ -6,12 +6,14 @@ class Llbci_whois {
      * Query a WhoIs server
      *
      * @param $domain
+     * @param bool $fallback if set to TRUE then try cli_query() if other attempts fail
      *
      * @return string
      */
     public function query($domain, $fallback = FALSE)
     {
         // TODO find responsible WhoIs Server
+        // TODO clean domain into a method the
         // TODO find best way to query server (HTTP or WhoIs Protocol), prefer HTTP
         // TODO query server
         return NULL;
@@ -19,6 +21,9 @@ class Llbci_whois {
 
     /**
      * Make a WhoIs query using HTTP instead of the WhoIs Protocol
+     *
+     * prefer query() over calling this directly
+     *
      * @param $domain
      * @param $server
      *
@@ -26,11 +31,14 @@ class Llbci_whois {
      */
     public function http_query($domain, $server)
     {
-
+        return NULL;
     }
 
     /**
      * Make a WhoIs query using the WhoIs protocol
+     *
+     * prefer query() over calling this directly. This might fail if curl module not
+     * installed or if web host has firewalled outbound port 43
      *
      * @param $domain
      * @param $server
@@ -60,6 +68,8 @@ class Llbci_whois {
      * Make a WhoIs query using the whois command
      *
      * @param $domain
+     *
+     * @return string
      *
      * @see https://tools.ietf.org/html/rfc3912
      */
