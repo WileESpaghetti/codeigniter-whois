@@ -10,3 +10,6 @@
     $this->load->library('someclass');
  
 ## Resources
+
+## Notes
+ If anyone knows of a free WhoIs API that we could integrate that would be awesome.
