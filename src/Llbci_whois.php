@@ -6,6 +6,7 @@ class Llbci_whois {
      * Query a WhoIs server
      *
      * @param $domain
+     *
      * @return string
      */
     public function query($domain, $fallback = FALSE)
@@ -20,6 +21,8 @@ class Llbci_whois {
      * Make a WhoIs query using HTTP instead of the WhoIs Protocol
      * @param $domain
      * @param $server
+     *
+     * @return string
      */
     public function http_query($domain, $server)
     {
@@ -31,6 +34,8 @@ class Llbci_whois {
      *
      * @param $domain
      * @param $server
+     *
+     * @return string
      *
      * @see https://tools.ietf.org/html/rfc3912
      */
