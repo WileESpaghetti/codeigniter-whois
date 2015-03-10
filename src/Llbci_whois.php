@@ -36,7 +36,19 @@ class Llbci_whois {
      */
     public function protocol_query($domain, $server)
     {
+        $domain = preg_replace('/^(www\.)?/i', '', $domain); // FIXME need more accurate domain parsing to remove subdomains
+        $request = curl_init();
+        curl_setopt($request, CURLOPT_URL, $server);
+        curl_setopt($request, CURLOPT_PORT, 43);
+        curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($request, CURLOPT_TIMEOUT, 5);
+        curl_setopt($request, CURLOPT_CUSTOMREQUEST, "$domain\r\n");
+        $whois = curl_exec ($request);
+        curl_close($request);
 
+        // TODO handle curl errors
+        // TODO sanitize $whois
+        return $whois;
     }
 
     /**
